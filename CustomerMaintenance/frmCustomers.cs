@@ -60,7 +60,8 @@ namespace CustomerMaintenance
                 Customer customer = customers[i]; // create & set variable for selected customer
                 string message = "Are you sure you want to delete "
                     + customer.FirstName + " " + customer.LastName + "?"; // create delete confirmation message
-                DialogResult button = MessageBox.Show(message, "Confirm Delete", MessageBoxButtons.YesNo); // display confirmation
+                DialogResult button = MessageBox.Show(message, "Confirm Delete", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Stop, MessageBoxDefaultButton.Button2); // display confirmation to delete
                 if (button == DialogResult.Yes) // check if user confirmed deletion
                 {
                     customers.Remove(customer); // remove selected customer from list
@@ -72,7 +73,12 @@ namespace CustomerMaintenance
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close(); // close form
+            if (MessageBox.Show("Quit Customer Application?", "Confirm Exit", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes) // display confirmation to delete
+            {
+                this.Close(); // close form
+            }
+            lstCustomers.Focus();
         }
     }
 }
