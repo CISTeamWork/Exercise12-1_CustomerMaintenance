@@ -74,7 +74,7 @@ namespace CustomerMaintenance
         private void btnExit_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Quit Customer Application?", "Confirm Exit", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes) // display confirmation to delete
+                MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes) // display confirmation to Exit
             {
                 this.Close(); // close form
             }
